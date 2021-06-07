@@ -1,7 +1,7 @@
 # Sentiment Analysis with Naive Bayes
 
 In this assignment, we implement a naive bayes classifier using the bag of words(BoW) representation with unigram and bigram options and use it to try determining whether a customer review is positive or negative. We also extend our classification task to predicting cateagories(books, camera, dvd, health, music, or software) of the given review. We will also use different techniques to improve our model performance such that removing stop words and adapting tf-idf weights into naive bayes classification problem.
-<br><br>
+
 
 <p align="center">
   <b>Data Analysis</b>
@@ -11,13 +11,11 @@ In this assignment, we implement a naive bayes classifier using the bag of words
   <img src="/report-images/data.PNG">
 </p>
 
-<br><br>
-
 We see that we have balanced traning data, since the training data samples are distributed equally in terms of the number of review for each class of sentiment feature and for each class of category feature.
 
 Since we use BoW model, we want that each sentiment should be represented by dictionaries whose sum of word frequencies are equal and they should include variety of unique words that reflects characteristics of its sentiment. So, the number of words used in reviews are basically more important than the number of reviews when we decide if we use a balanced dataset, since a review can be just a few words or just a few paragraphs long. Accordingly, we observe that the distribution of number of words used in a review are balanced based on their sentiments. In addition, each category (music, books, dvd, camera, health, software) has equally distributed reviews for each sentiment feature.
 
-<br><br>
+
 <p align="center">
   <b>Preview on Sentiments: The distribution of review sentiment polarity score</b>
 </p>
@@ -37,7 +35,6 @@ Since we use BoW model, we want that each sentiment should be represented by dic
 
 We also wanted to use polarity scores to get an intuition and see examples of highly positive reviews which have high polarity score, highly negative reviews which have low polarity score and neutral reviews which have 0 polarity score. Polarity scores is in range [-1,1]. -1 means highest negative sentiment score and 1 means highest positive sentiment score. You can see the review examples above based on their score. We can clearly see that some keywords dominate the review's polarity score and their sentiment class accordingly. "best, happy, excellent, impressed, perfectly ..." are the words used frequently in highly positive sentiments, while "boring, worst, talentless, terrible, horrible, hated ..." are the words used frequently in highly negative sentiments. When it comes to neutral reviews, they generally includes both words used in negative sentiments and positive sentiments. And they are longer reviews comparison with negative and positive reviews. Since they are longer, they include more words. The more words the more emotions, the more expressions. Thus, they can include characteristics words in both sentimen classes, and so that makes them neutral.
 
-<br><br>
 <p align="center">
   <b>WordClouds for Sentiments and Categories - without stopwords</b>
 </p>
@@ -48,7 +45,7 @@ We also wanted to use polarity scores to get an intuition and see examples of hi
 
 Top frequent keywords and the number of how often they appear both in positive and negative classes (both with stopwords included and not included) :
 
-<br><br>
+
 <p align="center">
   <b>Unigram</b>
 </p>
@@ -57,7 +54,7 @@ Top frequent keywords and the number of how often they appear both in positive a
   <img src="/report-images/unigram.PNG">
 </p>
 
-<br><br>
+
 <p align="center">
   <b>Bigram</b>
 </p>
@@ -66,7 +63,7 @@ Top frequent keywords and the number of how often they appear both in positive a
   <img src="/report-images/bigram.PNG">
 </p>
 
-<br><br>
+
 <p align="center">
   <b>Accuracy scores for all experiments done</b>
 </p>
@@ -79,7 +76,7 @@ We use different settings to get better accuracy on our model. We use BoW with t
 
 To implement TF-IDF in terms of the the conditional probabilities used in the Naive Bayes algorithm, we use tf-idf weight of the word, which is obtained by multiplying frequency of word with idf value of the word, instead of frequency of the word in the class and use sum of tf-idf weights of the class instead of total word frequency of the class. IDF values are obtained by getting the log of the total number of documents belonging the class over how many documents include that word. However, we get lower accuracy score (73.3%) than the score we get from the model we use only frequencies.
 
-<br><br>
+
 <p align="center">
   <b>Confusion Matrix and Classification Report for the Best Model</b>
 </p>
@@ -88,7 +85,6 @@ To implement TF-IDF in terms of the the conditional probabilities used in the Na
   <img src="/report-images/conf-sent.PNG">
 </p>
 
-<br><br>
 <p align="center">
   <b>Some of the misclassified samples</b>
 </p>
@@ -109,7 +105,7 @@ To implement TF-IDF in terms of the the conditional probabilities used in the Na
 
 If the absence of a word increases the likelihood that the model will predict a review as positive, then the presence of this word also increases the likelihood that the model will predict a review as negative, vice versa.
 
-<br><br>
+
 The words whose presence/absence most strongly predicts that the review is positive/negative (with stopwords are not included):
 
 <p align="center">
@@ -123,7 +119,7 @@ Lastly, we also try to observe what words only belong to positive sentiment dict
   <li>For negative sentiments: 'seagal': 41, 'nis': 27, 'lisbon': 24, 'blah': 24, 'ripoff': 23, 'the\x1a': 22, 'gnr': 22, 'dennett': 19, 'trite': 18, 'bras': 18</li>
 </ul>
 
-<br><br>
+
 <p align="center">
   <b>Confusion Matrix and Classification Report for Category Feature</b>
 </p>
